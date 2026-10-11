@@ -20,6 +20,99 @@
 <section class="panel"><h2>Dodaj własną obserwację</h2><div class="row"><div><label for="itemName">Nazwa skina</label><input id="itemName" placeholder="Np. Glock-18 | Green Line"></div><div><label for="buy">Cena zakupu / buy order (PLN)</label><input id="buy" type="number" min="0.01" step="0.01" value="0.53" inputmode="decimal"></div></div><label for="sell">Cena płacona przez kupującego na Steam (PLN)</label><input id="sell" type="number" min="0.01" step="0.01" value="0.95" inputmode="decimal"><div class="actions"><button type="button" id="add">Dodaj do listy</button></div><p class="muted">Wpisujesz ceny samodzielnie. To nie jest automatyczne pobieranie ofert.</p></section>
 <p id="count" aria-live="polite"></p><div id="results" aria-live="polite"></div>
 <p class="muted notice">Szacunkowa kwota Steam jest liczona jako 85% ceny kupującego, zaokrąglone w dół do grosza. Steam stosuje opłaty minimalne i zaokrąglenia, więc przy tanich skinach rzeczywisty wynik może być inny. Dodatnia różnica oznacza tylko potencjalnie większą wartość w portfelu Steam, nie wypłacalny zysk. Buy order nie gwarantuje realizacji. Przykładowe ceny poniżej nie są ofertami na żywo.</p>
+<section class="panel">
+  <h2>📡 Aktualne oferty CSFloat</h2>
+  <p class="muted">
+    Prawdziwe ceny zakupu z ostatniego skanowania.
+    Ceny w USD, bez porównania ze Steam.
+  </p>
+  <p id="liveStatus" class="muted">Ładowanie ofert...</p>
+  <div id="liveResults"></div>
+  <div class="actions">
+    <button type="button" id="refreshLive">
+      Odśwież dane
+    </button>
+  </div>
+</section>
+<script>
+async function loadCSFloat() {
+  const status = document.getElementById('liveStatus');
+  const root = document.getElementById('liveResults');
+
+  status.textContent = 'Pobieranie wyników...';
+  root.replaceChildren();
+
+  try {
+    const response = await fetch(
+      './results.json?t=' + Date.now(),
+      {cache: 'no-store'}
+    );
+
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error('Niepoprawny format danych');
+    }
+
+    status.textContent =
+      'Znaleziono wariantów skinów: ' + data.length;
+
+    if (data.length === 0) {
+      root.textContent = 'Brak ofert.';
+      return;
+    }
+
+    for (const item of data) {
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      const name = document.createElement('div');
+      name.className = 'name';
+      name.textContent = item.name || 'Nieznany skin';
+
+      const price = document.createElement('p');
+      price.className = 'positive';
+
+      const usd = Number(item.csfloat_price_usd);
+      price.textContent = Number.isFinite(usd)
+        ? 'Cena CSFloat: ' + usd.toFixed(2) + ' USD'
+        : 'Cena niedostępna';
+
+      card.append(name, price);
+
+      if (item.listing_id) {
+        const link = document.createElement('a');
+        link.href =
+          'https://csfloat.com/item/' +
+          encodeURIComponent(item.listing_id);
+        link.textContent = 'Zobacz ofertę CSFloat ↗';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.color = '#60c9f9';
+
+        card.append(link);
+      }
+
+      root.append(card);
+    }
+
+  } catch (error) {
+    status.textContent =
+      'Nie udało się pobrać danych CSFloat.';
+    root.textContent =
+      'Sprawdź, czy results.json jest dostępny na stronie.';
+  }
+}
+
+document.getElementById('refreshLive')
+  .addEventListener('click', loadCSFloat);
+
+loadCSFloat();
+</script>
 <script>
 (function(){
 'use strict';

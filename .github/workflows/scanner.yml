@@ -33,6 +33,8 @@ jobs:
       - name: Uruchom skaner
         env:
           CSFLOAT_API_KEY: ${{ secrets.CSFLOAT_API_KEY }}
+          BUDGET_PLN: ${{ inputs.budget_pln }}
+          RANGE_PLN: ${{ inputs.range_pln }}
         run: python scanner.py
 
       - name: Test szerszego wyszukiwania CSFloat

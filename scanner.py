@@ -1,123 +1,99 @@
 import os
 import json
-import urllib.request
+import time
 import urllib.error
 import urllib.parse
-import time
+import urllib.request
 
-print("CS2 Profit Scanner - skiny broni")
-print("=" * 45)
+API_KEY = os.environ.get('CSFLOAT_API_KEY')
+if not API_KEY:
+    raise SystemExit('Brak klucza CSFLOAT_API_KEY')
 
-api_key = os.environ.get("CSFLOAT_API_KEY")
+BASE_URL = 'https://csfloat.com/api/v1/listings'
+PAGE_SIZE = 40
+MAX_PAGES = 5
+MAX_PRICE_CENTS = 30  # 0.30 USD; to nie jest budzet PLN ze strony
 
-if not api_key:
-    raise SystemExit("Brak klucza CSFLOAT_API_KEY")
+cheapest_by_name = {}
+seen_ids = set()
+cursor = None
 
-# Skórki, które chcemy sprawdzać
-SKINS = [
-    "P250 | Sand Dune (Field-Tested)",
-    "Glock-18 | Death Rattle (Field-Tested)",
-    "P250 | Sand Dune (Battle-Scarred)",
-    "Glock-18 | Death Rattle (Battle-Scarred)",
-]
+print('CS2 Profit Hunter - skanowanie skinow broni')
 
-# Maksymalna cena: 20 centów USD
-MAX_PRICE_CENTS = 20
+for page in range(1, MAX_PAGES + 1):
+    params = {
+        'limit': PAGE_SIZE,
+        'sort_by': 'lowest_price',
+        'max_price': MAX_PRICE_CENTS,
+        'type': 'buy_now',
+        'category': 1,
+    }
+    if cursor:
+        params['cursor'] = cursor
 
-results = []
-
-for skin_name in SKINS:
-    print()
-    print("Sprawdzam:", skin_name)
-
-    params = urllib.parse.urlencode({
-        "limit": 10,
-        "sort_by": "lowest_price",
-        "max_price": MAX_PRICE_CENTS,
-        "type": "buy_now",
-        "market_hash_name": skin_name
+    url = BASE_URL + '?' + urllib.parse.urlencode(params)
+    request = urllib.request.Request(url, headers={
+        'Authorization': API_KEY,
+        'Accept': 'application/json',
+        'User-Agent': 'CS2ProfitHunter/2.1',
     })
 
-    url = "https://csfloat.com/api/v1/listings?" + params
-
-    request = urllib.request.Request(
-        url,
-        headers={
-            "Authorization": api_key,
-            "Accept": "application/json",
-            "User-Agent": "CS2ProfitScanner/1.3"
-        }
-    )
-
     try:
-        with urllib.request.urlopen(
-            request, timeout=20
-        ) as response:
-            data = json.load(response)
-
-        listings = data.get("data", [])
-
-        # Zostawiamy tylko właściwe skiny
-        valid = [
-            listing
-            for listing in listings
-            if listing.get("item", {}).get("type") == "skin"
-            and listing.get("item", {}).get(
-                "market_hash_name"
-            ) == skin_name
-        ]
-
-        if not valid:
-            print("Brak ofert w limicie.")
-            continue
-
-        cheapest = min(
-            valid,
-            key=lambda listing: listing["price"]
-        )
-
-        price_cents = cheapest["price"]
-        price_usd = price_cents / 100
-
-        print(f"Najtansza oferta: {price_usd:.2f} USD")
-        print(f"Liczba ofert: {len(valid)}")
-
-        result = {
-            "name": skin_name,
-            "csfloat_price_usd": price_usd,
-            "listing_id": cheapest.get("id")
-        }
-
-        results.append(result)
-
+        with urllib.request.urlopen(request, timeout=25) as response:
+            payload = json.load(response)
     except urllib.error.HTTPError as error:
-        print(f"Blad CSFloat HTTP: {error.code}")
-        raise
-
+        raise SystemExit(f'Blad CSFloat HTTP {error.code} na stronie {page}')
     except Exception as error:
-        print(f"Blad: {error}")
-        raise
+        raise SystemExit(f'Blad pobierania strony {page}: {error}')
 
-    # Krotka przerwa miedzy zapytaniami
-    time.sleep(1)
+    listings = payload.get('data', [])
+    print(f'Strona {page}: {len(listings)} ofert')
+    if not listings:
+        break
 
-print()
-print("=" * 45)
-print(f"Znaleziono skinow: {len(results)}")
+    for listing in listings:
+        item = listing.get('item') or {}
+        name = item.get('market_hash_name')
+        listing_id = listing.get('id')
+        price = listing.get('price')
+        if (item.get('type') != 'skin' or not name or not listing_id
+                or not isinstance(price, int) or price <= 0):
+            continue
+        if listing_id in seen_ids:
+            continue
+        seen_ids.add(listing_id)
+        previous = cheapest_by_name.get(name)
+        if previous is None or price < previous['price_cents']:
+            cheapest_by_name[name] = {
+                'name': name,
+                'price_cents': price,
+                'listing_id': listing_id,
+            }
 
-for result in results:
-    print(
-        f"{result['name']} -> "
-        f"{result['csfloat_price_usd']:.2f} USD"
+    next_cursor = payload.get('cursor')
+    if not next_cursor or next_cursor == cursor:
+        break
+    cursor = next_cursor
+    if page < MAX_PAGES:
+        time.sleep(1)
+
+results = [
+    {
+        'name': item['name'],
+        'csfloat_price_usd': item['price_cents'] / 100,
+        'listing_id': item['listing_id'],
+    }
+    for item in sorted(
+        cheapest_by_name.values(),
+        key=lambda item: (item['price_cents'], item['name']),
     )
+]
 
-# Zapisujemy wyniki do pliku JSON
-with open("results.json", "w", encoding="utf-8") as file:
-    json.dump(
-        results,
-        file,
-        ensure_ascii=False,
-        indent=2
-    )
+# Zapis atomowy: nie zostawiaj uszkodzonego JSON przy przerwaniu zapisu.
+with open('results.json.tmp', 'w', encoding='utf-8') as file:
+    json.dump(results, file, ensure_ascii=False, indent=2)
+os.replace('results.json.tmp', 'results.json')
 
-print("Zapisano results.json")
+print(f'Roznych skinow: {len(results)}')
+print(f'Unikalnych ofert: {len(seen_ids)}')
+print('Zapisano results.json')

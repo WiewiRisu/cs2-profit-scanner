@@ -50,6 +50,9 @@ try:
         name = item.get(
             "market_hash_name", "Nieznany przedmiot"
         )
+        # Pomijamy przedmioty inne niz skiny broni
+        if not item.get("weapon"):
+            continue
         price_cents = listing.get("price", 0)
         price_usd = price_cents / 100
         listing_id = listing.get("id", "")

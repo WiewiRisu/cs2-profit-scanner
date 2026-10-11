@@ -121,37 +121,3 @@ with open("results.json", "w", encoding="utf-8") as file:
     )
 
 print("Zapisano results.json")
-
-print()
-print("TEST STEAM MARKET")
-
-steam_params = urllib.parse.urlencode({
-    "appid": 730,
-    "currency": 1,
-    "country": "US",
-    "market_hash_name": "P250 | Sand Dune (Field-Tested)"
-})
-
-steam_url = (
-    "https://steamcommunity.com/market/priceoverview/?"
-    + steam_params
-)
-
-steam_request = urllib.request.Request(
-    steam_url,
-    headers={
-        "User-Agent": "Mozilla/5.0",
-        "Accept": "application/json"
-    }
-)
-
-try:
-    with urllib.request.urlopen(
-        steam_request, timeout=20
-    ) as response:
-        steam_data = json.load(response)
-
-    print("Odpowiedz Steam:", steam_data)
-
-except Exception as error:
-    print("Steam niedostepny:", error)

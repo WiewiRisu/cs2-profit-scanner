@@ -9,7 +9,7 @@ if not api_key:
     raise SystemExit('Brak CSFLOAT_API_KEY')
 
 params = urllib.parse.urlencode({
-    'limit': 100,
+    'limit': 40,
     'sort_by': 'lowest_price',
     'max_price': 30,
     'type': 'buy_now',

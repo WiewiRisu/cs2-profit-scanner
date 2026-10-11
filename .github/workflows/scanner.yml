@@ -1,0 +1,20 @@
+name: CS2 Profit Scanner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scanner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobierz pliki projektu
+        uses: actions/checkout@v4
+
+      - name: Przygotuj Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Uruchom skaner
+        run: python scanner.py

@@ -2,17 +2,12 @@
   {
     "name": "G3SG1 | Desert Storm (Field-Tested)",
     "csfloat_price_usd": 0.03,
-    "listing_id": "889502186474704131"
+    "listing_id": "893132921894997822"
   },
   {
     "name": "G3SG1 | Desert Storm (Well-Worn)",
     "csfloat_price_usd": 0.03,
     "listing_id": "893426283508270614"
-  },
-  {
-    "name": "G3SG1 | Jungle Dashed (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "880955124720207942"
   },
   {
     "name": "MAG-7 | Rust Coat (Well-Worn)",
@@ -77,7 +72,7 @@
   {
     "name": "SCAR-20 | Contractor (Field-Tested)",
     "csfloat_price_usd": 0.03,
-    "listing_id": "881440831762989642"
+    "listing_id": "893651153932388161"
   },
   {
     "name": "SCAR-20 | Contractor (Well-Worn)",
@@ -88,6 +83,11 @@
     "name": "SCAR-20 | Sand Mesh (Field-Tested)",
     "csfloat_price_usd": 0.03,
     "listing_id": "893584297066365109"
+  },
+  {
+    "name": "SG 553 | Waves Perforated (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "898488550318801975"
   },
   {
     "name": "Tec-9 | Army Mesh (Field-Tested)",

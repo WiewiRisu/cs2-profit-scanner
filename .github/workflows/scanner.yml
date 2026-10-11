@@ -23,6 +23,11 @@ jobs:
         env:
           CSFLOAT_API_KEY: ${{ secrets.CSFLOAT_API_KEY }}
         run: python scanner.py
+
+      - name: Test szerszego wyszukiwania CSFloat
+        env:
+          CSFLOAT_API_KEY: ${{ secrets.CSFLOAT_API_KEY }}
+        run: python test_csfloat.py
         
       - name: Zapisz wyniki skanera
         uses: actions/upload-artifact@v4

@@ -1,147 +1,40 @@
 <!doctype html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CS2 Profit Scanner 2.0</title>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS2 Profit Hunter</title>
 <style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;padding:20px 14px 50px;background:#0e1726;color:#edf3fa;font:16px system-ui,-apple-system,sans-serif;max-width:760px;margin-inline:auto}h1{font-size:27px;color:#60c9f9;margin-bottom:4px}h2{font-size:19px;margin:0 0 12px}.sub{color:#b5c4d5;margin:0 0 18px}.panel,.card{background:#1b2a3e;border:1px solid #33465c;border-radius:14px;padding:16px;margin:14px 0}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:14px;color:#c5d4e3;margin:8px 0 5px}input,select,button{font:inherit;border-radius:9px;padding:11px}input,select{width:100%;background:#0f1b2c;border:1px solid #51657b;color:white}button{background:#3bbcf0;color:#082034;border:0;font-weight:750;cursor:pointer}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1}.muted{color:#b7c7d8;font-size:13px;line-height:1.5}.name{font-weight:750;font-size:18px}.tag{font-size:12px;color:#c8d7e8}.positive{color:#7ce6aa}.negative{color:#ffacaa}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stat{background:#111f31;padding:10px;border-radius:9px}.stat strong{display:block;font-size:17px;margin-top:4px}.notice{border-left:3px solid #f4bf63;padding-left:10px}.empty{padding:18px;color:#d8e5f2}#count{font-size:14px;color:#b9cbe0} @media(max-width:400px){.row{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
-</style>
-</head>
-<body>
-<h1>🎯 CS2 Profit Scanner</h1>
-<p class="sub">Wersja 2.0 · lista skinów · dane testowe</p>
-<section class="panel">
-<h2>Ustawienia skanera</h2>
-<div class="row"><div><label for="budget">Budżet CSFloat (PLN)</label><input id="budget" type="number" min="0" step="0.01" value="0.53" inputmode="decimal"></div><div><label for="sort">Sortowanie</label><select id="sort"><option value="difference">Największa różnica</option><option value="price">Najtańszy zakup</option><option value="name">Nazwa A–Z</option></select></div></div>
-<label><input id="affordable" type="checkbox" checked style="width:auto;margin-right:8px">Pokaż tylko przedmioty w budżecie</label>
-<div class="actions"><button type="button" id="scan">Przelicz listę</button><button type="button" id="reset">Przywróć przykłady</button></div>
-</section>
-<section class="panel"><h2>Dodaj własną obserwację</h2><div class="row"><div><label for="itemName">Nazwa skina</label><input id="itemName" placeholder="Np. Glock-18 | Green Line"></div><div><label for="buy">Cena zakupu / buy order (PLN)</label><input id="buy" type="number" min="0.01" step="0.01" value="0.53" inputmode="decimal"></div></div><label for="sell">Cena płacona przez kupującego na Steam (PLN)</label><input id="sell" type="number" min="0.01" step="0.01" value="0.95" inputmode="decimal"><div class="actions"><button type="button" id="add">Dodaj do listy</button></div><p class="muted">Wpisujesz ceny samodzielnie. To nie jest automatyczne pobieranie ofert.</p></section>
-<p id="count" aria-live="polite"></p><div id="results" aria-live="polite"></div>
-<p class="muted notice">Szacunkowa kwota Steam jest liczona jako 85% ceny kupującego, zaokrąglone w dół do grosza. Steam stosuje opłaty minimalne i zaokrąglenia, więc przy tanich skinach rzeczywisty wynik może być inny. Dodatnia różnica oznacza tylko potencjalnie większą wartość w portfelu Steam, nie wypłacalny zysk. Buy order nie gwarantuje realizacji. Przykładowe ceny poniżej nie są ofertami na żywo.</p>
-<section class="panel">
-  <h2>📡 Aktualne oferty CSFloat</h2>
-  <p class="muted">
-    Prawdziwe ceny zakupu z ostatniego skanowania.
-    Ceny w USD, bez porównania ze Steam.
-  </p>
-  <p id="liveStatus" class="muted">Ładowanie ofert...</p>
-  <div id="liveResults"></div>
-  <div class="actions">
-    <button type="button" id="refreshLive">
-      Odśwież dane
-    </button>
-  </div>
-</section>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0 auto;max-width:760px;padding:18px 13px 70px;background:#0d1625;color:#edf3fc;font:15px system-ui,-apple-system,sans-serif}h1{font-size:26px;color:#65caff;margin:0}h2{font-size:20px;margin:0 0 12px}h3{font-size:17px;margin:0 0 9px}.sub,.muted{color:#b9c8db;font-size:13px;line-height:1.55}.sub{margin:5px 0 18px}.panel,.card{background:#1b2a3e;border:1px solid #34495f;border-radius:15px;padding:15px;margin:12px 0}.row{display:grid;grid-template-columns:1fr 1fr;gap:11px}.triple{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}label{display:block;color:#c7d8e9;font-size:13px;margin:9px 0 5px}input,select,button{font:inherit;border-radius:9px;padding:11px}input,select{width:100%;background:#0e1b2d;border:1px solid #58708b;color:#fff}button{border:0;background:#44bff0;color:#092136;font-weight:750;cursor:pointer}button.secondary{background:#334961;color:#f0f6ff}button.danger{background:#57363e;color:#ffe3e6}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.actions button{flex:1}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0}.tabs button{font-size:13px;padding:10px 5px;background:#263a52;color:#d8e7f7}.tabs button.active{background:#44bff0;color:#092136}.positive{color:#7ee7a9}.negative{color:#ffaaa9}.neutral{color:#d4dce7}.stat{background:#101f31;border-radius:10px;padding:11px}.stat strong{display:block;font-size:19px;margin-top:5px}.price{font-size:18px;font-weight:750}.line{display:flex;justify-content:space-between;gap:12px;margin:8px 0}.line span:last-child{text-align:right}.tag{font-size:12px;color:#c6d6e8}.notice{border-left:3px solid #f3bc67;padding-left:11px}.hidden{display:none!important}.link{color:#74d2ff}.pill{display:inline-block;padding:4px 9px;border-radius:20px;background:#304760;color:#d8ebfb;font-size:12px}.result{font-size:23px;font-weight:800;margin:10px 0}.step{animation:appear .25s ease}@keyframes appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}@media(max-width:430px){.triple{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}body{padding-inline:11px}}
+</style></head><body>
+<h1>🎯 CS2 Profit Hunter</h1><p class="sub">Skaner buy orderów · planowane okazje · historia profitu</p>
+<nav class="tabs"><button id="tabScan" class="active">🔎 Skaner</button><button id="tabPlans">📋 Planowane</button><button id="tabProfile">🏆 Profil</button></nav>
+<main id="scanPage" class="step">
+<section id="step1" class="panel step"><h2>1. Ustaw skanowanie</h2><div class="row"><div><label for="budget">Saldo CSFloat (PLN)</label><input id="budget" type="number" min="0" step="0.01" value="0.53" inputmode="decimal"></div><div><label for="range">Zakres ± (PLN)</label><input id="range" type="number" min="0" step="0.01" value="0.30" inputmode="decimal"></div></div><label for="rate">Kurs 1 USD w PLN (ręcznie)</label><input id="rate" type="number" min="0.01" step="0.0001" value="3.70" inputmode="decimal"><p id="rangeInfo" class="muted"></p><button id="startScan" style="width:100%">Skanuj</button><p class="muted">Wczytujemy ostatnie wyniki GitHub Actions. Ten przycisk nie uruchamia nowego skanowania na serwerze.</p></section>
+<section id="step2" class="hidden step"><h2>2. Kandydaci na buy order</h2><p id="scanStatus" class="muted" aria-live="polite"></p><div id="candidates"></div><div class="actions"><button id="calculate">Oblicz profit</button><button class="secondary" id="back1">Wróć</button></div></section>
+<section id="step3" class="hidden step"><h2>3. TOP 5 według profitu</h2><p id="topStatus" class="muted"></p><div id="topList"></div><div class="actions"><button id="newScan">Nowy skan</button><button id="back2" class="secondary">Popraw ceny</button></div></section>
+</main>
+<section id="plansPage" class="hidden step"><h2>📋 Zaplanowane profity</h2><p class="muted">Zapisane transakcje i ich aktualny status.</p><div id="plansList"></div></section>
+<section id="profilePage" class="hidden step"><h2>🏆 Twój profil</h2><div class="row"><div class="stat">Łączny wynik<strong id="totalProfit">0,00 zł</strong></div><div class="stat">Ukończone transakcje<strong id="doneCount">0</strong></div><div class="stat">Zaplanowane<strong id="planCount">0</strong></div><div class="stat">Poziom<strong id="level">1</strong></div></div><p id="levelProgress" class="muted"></p><h3>Historia zakończonych</h3><div id="historyList"></div><div class="actions"><button id="exportData" class="secondary">Eksportuj kopię danych</button><label for="importData" class="pill" style="cursor:pointer">Importuj kopię</label><input id="importData" type="file" accept="application/json,.json" class="hidden"></div><p class="muted">Zapis na tym urządzeniu. Eksport pozwala zachować kopię na iPhonie lub przenieść dane.</p></section>
+<p class="muted notice">Wynik to zmiana wartości portfela Steam, a nie wypłacalna gotówka. Buy order może się nie zrealizować. Rzeczywisty wynik zależy od ceny zakupu, kursu, dodatkowych opłat i kwoty netto pokazanej przez Steam. Starsza kolekcja nie gwarantuje wzrostu ceny.</p>
 <script>
-async function loadCSFloat() {
-  const status = document.getElementById('liveStatus');
-  const root = document.getElementById('liveResults');
-
-  status.textContent = 'Pobieranie wyników...';
-  root.replaceChildren();
-
-  try {
-    const response = await fetch(
-      './results.json?t=' + Date.now(),
-      {cache: 'no-store'}
-    );
-
-    if (!response.ok) {
-      throw new Error('HTTP ' + response.status);
-    }
-
-    const data = await response.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error('Niepoprawny format danych');
-    }
-
-    status.textContent =
-      'Znaleziono wariantów skinów: ' + data.length;
-
-    if (data.length === 0) {
-      root.textContent = 'Brak ofert.';
-      return;
-    }
-
-    for (const item of data) {
-      const card = document.createElement('article');
-      card.className = 'card';
-
-      const name = document.createElement('div');
-      name.className = 'name';
-      name.textContent = item.name || 'Nieznany skin';
-
-      const price = document.createElement('p');
-      price.className = 'positive';
-
-      const usd = Number(item.csfloat_price_usd);
-      price.textContent = Number.isFinite(usd)
-        ? 'Cena CSFloat: ' + usd.toFixed(2) + ' USD'
-        : 'Cena niedostępna';
-
-      card.append(name, price);
-
-      if (item.listing_id) {
-        const link = document.createElement('a');
-        link.href =
-          'https://csfloat.com/item/' +
-          encodeURIComponent(item.listing_id);
-        link.textContent = 'Zobacz ofertę CSFloat ↗';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.style.color = '#60c9f9';
-
-        card.append(link);
-      }
-
-      root.append(card);
-    }
-
-  } catch (error) {
-    status.textContent =
-      'Nie udało się pobrać danych CSFloat.';
-    root.textContent =
-      'Sprawdź, czy results.json jest dostępny na stronie.';
-  }
-}
-
-document.getElementById('refreshLive')
-  .addEventListener('click', loadCSFloat);
-
-loadCSFloat();
-</script>
-<script>
-(function(){
-'use strict';
-const examples=[
-{name:'Glock-18 | Green Line',buy:0.53,sell:0.95},
-{name:'Przykład A — skin testowy',buy:0.40,sell:0.72},
-{name:'Przykład B — skin testowy',buy:0.50,sell:0.61},
-{name:'Przykład C — skin testowy',buy:0.65,sell:1.10},
-{name:'Przykład D — skin testowy',buy:0.28,sell:0.39}
-];
-let items=examples.map(x=>({...x}));
-const $=id=>document.getElementById(id);
-const money=x=>x.toFixed(2).replace('.',',')+' zł';
-const cents=v=>Math.round(Number(v)*100);
-function element(tag,cls,content){const e=document.createElement(tag);if(cls)e.className=cls;if(content!==undefined)e.textContent=content;return e}
-function render(){
-const budget=cents($('budget').value);const affordable=$('affordable').checked;const sort=$('sort').value;
-if(!Number.isFinite(budget)||budget<0){$('count').textContent='Wpisz poprawny budżet.';$('results').replaceChildren();return}
-const list=items.map((x,i)=>({...x,index:i,buyC:cents(x.buy),sellC:cents(x.sell)})).filter(x=>!affordable||x.buyC<=budget);
-list.sort((a,b)=>sort==='price'?a.buyC-b.buyC:sort==='name'?a.name.localeCompare(b.name,'pl'):(Math.floor(b.sellC*.85)-b.buyC)-(Math.floor(a.sellC*.85)-a.buyC));
-$('count').textContent='Wyniki: '+list.length+' z '+items.length+' pozycji';const root=$('results');root.replaceChildren();
-if(!list.length){root.append(element('div','panel empty','Brak pozycji w wybranym budżecie. Zmień filtr lub dodaj własny skin.'));return}
-for(const x of list){const net=Math.floor(x.sellC*.85),difference=net-x.buyC;const card=element('article','card');card.append(element('div','name',x.name));card.append(element('div','tag',x.buyC<=budget?'Mieści się w budżecie':'Poza budżetem'));
-const stats=element('div','stats');for(const [label,value,cls] of [['Zakup / buy order',money(x.buyC/100),''],['Steam — cena kupującego',money(x.sellC/100),''],['Steam — szacowane saldo',money(net/100),''],['Potencjalna różnica',(difference>0?'+':'')+money(difference/100),difference>0?'positive':'negative']]){const box=element('div','stat');box.append(element('span','muted',label));box.append(element('strong',cls,value));stats.append(box)}card.append(stats);root.append(card)}
-}
-$('scan').addEventListener('click',render);$('budget').addEventListener('input',render);$('sort').addEventListener('change',render);$('affordable').addEventListener('change',render);
-$('reset').addEventListener('click',()=>{items=examples.map(x=>({...x}));$('budget').value='0.53';$('affordable').checked=true;render()});
-$('add').addEventListener('click',()=>{const name=$('itemName').value.trim();const buy=Number($('buy').value.replace(',','.'));const sell=Number($('sell').value.replace(',','.'));if(!name||!Number.isFinite(buy)||!Number.isFinite(sell)||buy<=0||sell<=0){alert('Wpisz nazwę i poprawne ceny większe od zera.');return}items.push({name,buy:Math.round(buy*100)/100,sell:Math.round(sell*100)/100});$('itemName').value='';render()});render();
+(()=>{'use strict';
+const $=id=>document.getElementById(id), fmt=n=>(Number(n)||0).toFixed(2).replace('.',',')+' zł', num=s=>Number(String(s).replace(',','.')), cents=n=>Math.round(n*100), safe=(x)=>Number.isFinite(x)&&x>=0;
+const STORE='cs2profit-hunter-v1';let state={quotes:{},plans:[],history:[]};try{const v=JSON.parse(localStorage.getItem(STORE)||'{}');if(v&&typeof v==='object'){state.quotes=v.quotes||{};state.plans=Array.isArray(v.plans)?v.plans:[];state.history=Array.isArray(v.history)?v.history:[]}}catch(e){}
+function save(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch(e){alert('Nie udało się zapisać danych w przeglądarce. Zrób kopię w zakładce Profil.')}}
+let current=[],rate=3.7,budget=0.53,range=0.3;
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e};
+function showTab(tab){for(const t of ['Scan','Plans','Profile']){$('tab'+t).classList.toggle('active',t===tab);$(t.toLowerCase()+'Page').classList.toggle('hidden',t!==tab)}if(tab==='Plans')renderPlans();if(tab==='Profile')renderProfile()}
+function step(n){for(let i=1;i<=3;i++)$('step'+i).classList.toggle('hidden',i!==n);window.scrollTo({top:0,behavior:'smooth'})}
+function rangeText(){const b=num($('budget').value),r=num($('range').value);$('rangeInfo').textContent=safe(b)&&safe(r)?'Zakres orientacyjny: '+fmt(Math.max(0,b-r))+' – '+fmt(b+r):'Wpisz poprawne wartości.'}
+$('budget').addEventListener('input',rangeText);$('range').addEventListener('input',rangeText);rangeText();
+function key(x){return x.name}function quote(x){return state.quotes[key(x)]||{buy:'',gross:'',net:''}}
+function setQuote(x,field,value){const q=state.quotes[key(x)]||{buy:'',gross:'',net:''};q[field]=value;state.quotes[key(x)]=q;save()}
+function candidateCard(x,i){const card=el('article','card');card.append(el('h3','',`${i+1}. ${x.name}`));card.append(el('p','muted','Najtańsza znaleziona oferta: '+x.usd.toFixed(2)+' USD (około '+fmt(x.pln)+'). Nie jest to cena buy order.'));if(x.id){const a=el('a','link','Otwórz ofertę CSFloat ↗');a.href='https://csfloat.com/item/'+encodeURIComponent(x.id);a.target='_blank';a.rel='noopener noreferrer';card.append(a)}const q=quote(x);const wrap=el('div','triple');for(const [field,label,placeholder] of [['buy','Twój buy order (PLN)',x.pln.toFixed(2)],['gross','Steam: kupujący płaci (PLN)','0.00'],['net','Steam: otrzymasz (PLN)','0.00']]){const d=el('div');const l=el('label','',label);const input=el('input');input.type='number';input.min='0';input.step='0.01';input.inputMode='decimal';input.placeholder=placeholder;input.value=q[field];input.addEventListener('input',()=>setQuote(x,field,input.value));d.append(l,input);wrap.append(d)}card.append(wrap);return card}
+async function scan(){budget=num($('budget').value);range=num($('range').value);rate=num($('rate').value);if(!safe(budget)||!safe(range)||!Number.isFinite(rate)||rate<=0){alert('Sprawdź saldo, zakres i kurs USD/PLN.');return}step(2);$('scanStatus').textContent='Wczytywanie ofert...';$('candidates').replaceChildren();try{const response=await fetch('./results.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!Array.isArray(data))throw Error('Nieprawidłowy format results.json');const lo=Math.max(0,budget-range),hi=budget+range;current=data.filter(x=>x&&typeof x.name==='string'&&Number.isFinite(Number(x.csfloat_price_usd))&&Number(x.csfloat_price_usd)>=0).map(x=>({name:x.name,usd:Number(x.csfloat_price_usd),pln:Number(x.csfloat_price_usd)*rate,id:x.listing_id})).filter(x=>x.pln>=lo-0.00001&&x.pln<=hi+0.00001).sort((a,b)=>Math.abs(a.pln-budget)-Math.abs(b.pln-budget)).slice(0,10);$('scanStatus').textContent=`Znaleziono ${current.length} z maksymalnie 10 kandydatów. Dostępna baza: ${data.length} ofert z ostatniego skanowania.`;if(!current.length)$('candidates').append(el('div','panel','Brak skinów w tym zakresie. Zmień zakres albo uruchom GitHub Actions.'));for(let i=0;i<current.length;i++)$('candidates').append(candidateCard(current[i],i))}catch(e){$('scanStatus').textContent='Błąd pobierania danych: '+e.message}}
+function results(){return current.map(x=>{const q=quote(x),buy=num(q.buy),gross=num(q.gross),net=num(q.net);if(q.buy===''||q.gross===''||q.net===''||!safe(buy)||!safe(gross)||!safe(net)||net>gross||buy===0)return null;return {...x,buy,gross,net,profit:cents(net)-cents(buy)}}).filter(Boolean).sort((a,b)=>b.profit-a.profit)}
+function top(){const list=results().slice(0,5);step(3);$('topList').replaceChildren();$('topStatus').textContent=list.length?'TOP '+list.length+' spośród poprawnie wycenionych ofert.':'Wpisz trzy kwoty PLN przy co najmniej jednym skinie. Kwota netto nie może przekraczać ceny kupującego.';for(let i=0;i<list.length;i++){const x=list[i],card=el('article','card');card.append(el('h3','',`${i+1}. ${x.name}`));for(const [label,val] of [['Buy order',fmt(x.buy)],['Kupujący płaci',fmt(x.gross)],['Otrzymasz na Steam',fmt(x.net)]]){const line=el('div','line');line.append(el('span','muted',label),el('span','',val));card.append(line)}card.append(el('div','result '+(x.profit>0?'positive':x.profit<0?'negative':'neutral'),(x.profit>0?'+':'')+fmt(x.profit/100)));const btn=el('button','','Dodaj do planowanych');btn.addEventListener('click',()=>{const record={id:String(Date.now())+'-'+Math.random().toString(36).slice(2),name:x.name,buy:x.buy,gross:x.gross,net:x.net,status:'Obserwuję',created:new Date().toISOString()};state.plans.push(record);save();btn.disabled=true;btn.textContent='Dodano ✓'});card.append(btn);$('topList').append(card)}}
+const statuses=['Obserwuję','Buy order złożony','Skin kupiony','Wystawiony na Steam','Sprzedany'];
+function renderPlans(){$('plansList').replaceChildren();if(!state.plans.length){$('plansList').append(el('div','panel','Nie masz jeszcze zaplanowanych transakcji. Wybierz okazję z TOP 5.'));return}for(const p of state.plans){const card=el('article','card');card.append(el('h3','',p.name));card.append(el('p','muted','Plan: zakup '+fmt(p.buy)+' · Steam netto '+fmt(p.net)));const select=el('select');for(const s of statuses){const opt=el('option','',s);opt.value=s;select.append(opt)}select.value=p.status;select.addEventListener('change',()=>{p.status=select.value;save();renderPlans()});const l=el('label','','Status transakcji');card.append(l,select);for(const [field,label] of [['buy','Faktyczny koszt zakupu (PLN)'],['net','Faktycznie otrzymasz / otrzymałeś na Steam (PLN)']]){const lab=el('label','',label),inp=el('input');inp.type='number';inp.step='0.01';inp.min='0';inp.value=p[field];inp.addEventListener('change',()=>{const v=num(inp.value);if(safe(v)){p[field]=v;save()}else{alert('Wpisz poprawną kwotę.');inp.value=p[field]}});card.append(lab,inp)}const actions=el('div','actions');const done=el('button','','Zatwierdź sprzedaż');done.disabled=p.status!=='Sprzedany';done.addEventListener('click',()=>{if(!confirm('Potwierdzasz zakończoną sprzedaż i rzeczywiste kwoty?'))return;state.history.push({...p,completed:new Date().toISOString(),profit:cents(p.net)-cents(p.buy)});state.plans=state.plans.filter(x=>x.id!==p.id);save();renderPlans()});const remove=el('button','danger','Usuń plan');remove.addEventListener('click',()=>{if(confirm('Usunąć ten plan?')){state.plans=state.plans.filter(x=>x.id!==p.id);save();renderPlans()}});actions.append(done,remove);card.append(actions);$('plansList').append(card)}}
+function renderProfile(){const total=state.history.reduce((sum,x)=>sum+x.profit,0),done=state.history.length;$('totalProfit').textContent=(total>0?'+':'')+fmt(total/100);$('totalProfit').className=total>0?'positive':total<0?'negative':'';$('doneCount').textContent=done;$('planCount').textContent=state.plans.length;$('level').textContent=1+Math.floor(done/5);$('levelProgress').textContent=`Do kolejnego poziomu: ${5-done%5} ukończonych transakcji.`;$('historyList').replaceChildren();if(!done)$('historyList').append(el('div','panel','Brak zakończonych transakcji.'));for(const x of [...state.history].reverse()){const c=el('article','card');c.append(el('h3','',x.name),el('p','muted','Zakup '+fmt(x.buy)+' · Steam netto '+fmt(x.net)));c.append(el('div','result '+(x.profit>0?'positive':x.profit<0?'negative':'neutral'),(x.profit>0?'+':'')+fmt(x.profit/100)));$('historyList').append(c)}}
+$('tabScan').onclick=()=>showTab('Scan');$('tabPlans').onclick=()=>showTab('Plans');$('tabProfile').onclick=()=>showTab('Profile');$('startScan').onclick=scan;$('calculate').onclick=top;$('back1').onclick=()=>step(1);$('back2').onclick=()=>{step(2);$('candidates').replaceChildren();current.forEach((x,i)=>$('candidates').append(candidateCard(x,i)))};$('newScan').onclick=()=>step(1);
+$('exportData').onclick=()=>{const blob=new Blob([JSON.stringify({version:1,...state},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='cs2-profit-hunter-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+$('importData').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const v=JSON.parse(await file.text());if(!v||!Array.isArray(v.plans)||!Array.isArray(v.history)||!v.quotes||typeof v.quotes!=='object')throw Error('Nieprawidłowa kopia');if(confirm('Zastąpić zapisane dane zawartością kopii?')){state={quotes:v.quotes,plans:v.plans,history:v.history};save();renderProfile()}}catch(err){alert('Nie udało się odczytać kopii: '+err.message)}e.target.value=''});
 })();
-</script>
-</body>
-</html>
+</script></body></html>

@@ -17,4 +17,6 @@ jobs:
           python-version: '3.11'
 
       - name: Uruchom skaner
+        env:
+          CSFLOAT_API_KEY: ${{ secrets.CSFLOAT_API_KEY }}
         run: python scanner.py

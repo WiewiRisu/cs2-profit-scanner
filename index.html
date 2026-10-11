@@ -1,1 +1,145 @@
-test
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Profit Scanner</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #38bdf8;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+    }
+
+    #wynik {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    small {
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎯 CS2 Profit Scanner</h1>
+
+  <p>Wersja 1.0 — kalkulator opłacalności</p>
+
+  <div class="box">
+    <label>Twój budżet CSFloat (zł)</label>
+    <input id="budzet" type="number" value="0.53" step="0.01">
+
+    <label>Cena zakupu / Buy Order (zł)</label>
+    <input id="zakup" type="number" value="0.53" step="0.01">
+
+    <label>Cena sprzedaży na Steam (zł)</label>
+    <input id="steam" type="number" value="0.95" step="0.01">
+
+    <button id="oblicz">OBLICZ</button>
+  </div>
+
+  <div class="box" id="wynik">
+    Kliknij OBLICZ, aby zobaczyć wynik.
+  </div>
+
+  <small>
+    Wynik jest szacunkiem przy prowizji 15%.
+    Rzeczywiste opłaty Steam mogą się różnić,
+    szczególnie przy tanich przedmiotach.
+    Buy Order nie gwarantuje zakupu.
+  </small>
+
+  <script>
+    function oblicz() {
+      const budzet = Number(
+        document.getElementById("budzet").value
+      );
+
+      const zakup = Number(
+        document.getElementById("zakup").value
+      );
+
+      const steam = Number(
+        document.getElementById("steam").value
+      );
+
+      const wynik = document.getElementById("wynik");
+
+      if (budzet < 0 || zakup <= 0 || steam <= 0) {
+        wynik.textContent = "Sprawdź wpisane kwoty.";
+        return;
+      }
+
+      const poProwizji = Math.floor(steam * 0.85 * 100) / 100;
+      const roznica = Math.round(
+        (poProwizji - zakup) * 100
+      ) / 100;
+
+      let tekst =
+        "💰 Szacowane saldo Steam: " +
+        poProwizji.toFixed(2) + " zł<br>" +
+        "📊 Różnica: " +
+        roznica.toFixed(2) + " zł<br>";
+
+      if (zakup > budzet) {
+        tekst += "❌ Zakup przekracza budżet.";
+      } else if (roznica > 0) {
+        tekst += "✅ Potencjalnie dodatnia różnica.";
+      } else {
+        tekst += "⚠️ Brak dodatniej różnicy.";
+      }
+
+      wynik.innerHTML = tekst;
+    }
+
+    document.getElementById("oblicz")
+      .addEventListener("click", oblicz);
+
+    oblicz();
+  </script>
+
+</body>
+</html>

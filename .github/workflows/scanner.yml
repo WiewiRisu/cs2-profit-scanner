@@ -20,3 +20,11 @@ jobs:
         env:
           CSFLOAT_API_KEY: ${{ secrets.CSFLOAT_API_KEY }}
         run: python scanner.py
+        
+      - name: Zapisz wyniki skanera
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs2-scanner-results
+          path: results.json
+          if-no-files-found: error
+          retention-days: 7

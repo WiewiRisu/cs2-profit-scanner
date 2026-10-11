@@ -12,8 +12,35 @@ if not API_KEY:
 BASE_URL = 'https://csfloat.com/api/v1/listings'
 PAGE_SIZE = 40
 MAX_PAGES = 20
-MAX_PRICE_CENTS = 50  # Maksymalnie 0.50 USD za skin
-MIN_PRICE_CENTS = 8
+
+# Kurs orientacyjny USD -> PLN, taki sam jak na stronie
+USD_TO_PLN = 3.92
+
+try:
+    BUDGET_PLN = float(os.environ.get('BUDGET_PLN', '0.53').replace(',', '.'))
+    RANGE_PLN = float(os.environ.get('RANGE_PLN', '0.30').replace(',', '.'))
+except ValueError:
+    raise SystemExit('Nieprawidlowe saldo lub zakres')
+
+if not (
+    0 <= BUDGET_PLN <= 1000
+    and 0 <= RANGE_PLN <= 1000
+):
+    raise SystemExit('Saldo i zakres musza byc poprawnymi kwotami PLN')
+
+min_pln = max(0, BUDGET_PLN - RANGE_PLN)
+max_pln = BUDGET_PLN + RANGE_PLN
+
+# CSFloat przyjmuje ceny w centach USD
+MIN_PRICE_CENTS = max(0, int(min_pln / USD_TO_PLN * 100))
+MAX_PRICE_CENTS = max(
+    MIN_PRICE_CENTS + 1,
+    int(max_pln / USD_TO_PLN * 100 + 0.999999)
+)
+
+print(f'Saldo: {BUDGET_PLN:.2f} PLN')
+print(f'Zakres: {min_pln:.2f} - {max_pln:.2f} PLN')
+print(f'CSFloat: {MIN_PRICE_CENTS} - {MAX_PRICE_CENTS} centow USD')
 
 cheapest_by_name = {}
 seen_ids = set()

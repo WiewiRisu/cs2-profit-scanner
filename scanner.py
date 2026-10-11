@@ -25,6 +25,7 @@ for page in range(1, MAX_PAGES + 1):
     params = {
         'limit': PAGE_SIZE,
         'sort_by': 'lowest_price',
+        'min_price': MIN_PRICE_CENTS,
         'max_price': MAX_PRICE_CENTS,
         'type': 'buy_now',
         'category': 1,

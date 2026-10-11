@@ -31,6 +31,9 @@ except urllib.error.HTTPError as error:
 
 listings = data.get('data', [])
 print('Liczba ofert:', len(listings))
+print('Czy API zwrocilo cursor:', bool(data.get('cursor')))
+print('Dlugosc cursora:', len(str(data.get('cursor') or '')))
+print('Dostepne pola odpowiedzi:', list(data.keys()))
 print('Przykladowe typy:', sorted({str(x.get('item', {}).get('type')) for x in listings}))
 
 seen = set()

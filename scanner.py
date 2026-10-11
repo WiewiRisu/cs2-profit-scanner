@@ -16,7 +16,7 @@ params = urllib.parse.urlencode({
     "sort_by": "lowest_price",
     "max_price": 20,
     "type": "buy_now",
-    "market_hash_name": "P250 | Sand Dune (Field-Tested)"
+        "market_hash_name": "Glock-18 | Death Rattle (Field-Tested)"
 })
 
 url = "https://csfloat.com/api/v1/listings?" + params

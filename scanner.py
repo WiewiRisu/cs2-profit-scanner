@@ -11,7 +11,7 @@ if not API_KEY:
 
 BASE_URL = 'https://csfloat.com/api/v1/listings'
 PAGE_SIZE = 40
-MAX_PAGES = 5
+MAX_PAGES = 20
 MAX_PRICE_CENTS = 50  # Maksymalnie 0.50 USD za skin
 
 cheapest_by_name = {}

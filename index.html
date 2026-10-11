@@ -1,145 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS2 Profit Scanner</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #101827;
-      color: white;
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    h1 {
-      color: #38bdf8;
-    }
-
-    .box {
-      background: #1e293b;
-      padding: 18px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      font-size: 18px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      background: #38bdf8;
-      border: none;
-      border-radius: 8px;
-    }
-
-    #wynik {
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    small {
-      color: #cbd5e1;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CS2 Profit Scanner 2.0</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;padding:20px 14px 50px;background:#0e1726;color:#edf3fa;font:16px system-ui,-apple-system,sans-serif;max-width:760px;margin-inline:auto}h1{font-size:27px;color:#60c9f9;margin-bottom:4px}h2{font-size:19px;margin:0 0 12px}.sub{color:#b5c4d5;margin:0 0 18px}.panel,.card{background:#1b2a3e;border:1px solid #33465c;border-radius:14px;padding:16px;margin:14px 0}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:14px;color:#c5d4e3;margin:8px 0 5px}input,select,button{font:inherit;border-radius:9px;padding:11px}input,select{width:100%;background:#0f1b2c;border:1px solid #51657b;color:white}button{background:#3bbcf0;color:#082034;border:0;font-weight:750;cursor:pointer}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1}.muted{color:#b7c7d8;font-size:13px;line-height:1.5}.name{font-weight:750;font-size:18px}.tag{font-size:12px;color:#c8d7e8}.positive{color:#7ce6aa}.negative{color:#ffacaa}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stat{background:#111f31;padding:10px;border-radius:9px}.stat strong{display:block;font-size:17px;margin-top:4px}.notice{border-left:3px solid #f4bf63;padding-left:10px}.empty{padding:18px;color:#d8e5f2}#count{font-size:14px;color:#b9cbe0} @media(max-width:400px){.row{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style>
 </head>
-
 <body>
-
-  <h1>🎯 CS2 Profit Scanner</h1>
-
-  <p>Wersja 1.0 — kalkulator opłacalności</p>
-
-  <div class="box">
-    <label>Twój budżet CSFloat (zł)</label>
-    <input id="budzet" type="number" value="0.53" step="0.01">
-
-    <label>Cena zakupu / Buy Order (zł)</label>
-    <input id="zakup" type="number" value="0.53" step="0.01">
-
-    <label>Cena sprzedaży na Steam (zł)</label>
-    <input id="steam" type="number" value="0.95" step="0.01">
-
-    <button id="oblicz">OBLICZ</button>
-  </div>
-
-  <div class="box" id="wynik">
-    Kliknij OBLICZ, aby zobaczyć wynik.
-  </div>
-
-  <small>
-    Wynik jest szacunkiem przy prowizji 15%.
-    Rzeczywiste opłaty Steam mogą się różnić,
-    szczególnie przy tanich przedmiotach.
-    Buy Order nie gwarantuje zakupu.
-  </small>
-
-  <script>
-    function oblicz() {
-      const budzet = Number(
-        document.getElementById("budzet").value
-      );
-
-      const zakup = Number(
-        document.getElementById("zakup").value
-      );
-
-      const steam = Number(
-        document.getElementById("steam").value
-      );
-
-      const wynik = document.getElementById("wynik");
-
-      if (budzet < 0 || zakup <= 0 || steam <= 0) {
-        wynik.textContent = "Sprawdź wpisane kwoty.";
-        return;
-      }
-
-      const poProwizji = Math.floor(steam * 0.85 * 100) / 100;
-      const roznica = Math.round(
-        (poProwizji - zakup) * 100
-      ) / 100;
-
-      let tekst =
-        "💰 Szacowane saldo Steam: " +
-        poProwizji.toFixed(2) + " zł<br>" +
-        "📊 Różnica: " +
-        roznica.toFixed(2) + " zł<br>";
-
-      if (zakup > budzet) {
-        tekst += "❌ Zakup przekracza budżet.";
-      } else if (roznica > 0) {
-        tekst += "✅ Potencjalnie dodatnia różnica.";
-      } else {
-        tekst += "⚠️ Brak dodatniej różnicy.";
-      }
-
-      wynik.innerHTML = tekst;
-    }
-
-    document.getElementById("oblicz")
-      .addEventListener("click", oblicz);
-
-    oblicz();
-  </script>
-
+<h1>🎯 CS2 Profit Scanner</h1>
+<p class="sub">Wersja 2.0 · lista skinów · dane testowe</p>
+<section class="panel">
+<h2>Ustawienia skanera</h2>
+<div class="row"><div><label for="budget">Budżet CSFloat (PLN)</label><input id="budget" type="number" min="0" step="0.01" value="0.53" inputmode="decimal"></div><div><label for="sort">Sortowanie</label><select id="sort"><option value="difference">Największa różnica</option><option value="price">Najtańszy zakup</option><option value="name">Nazwa A–Z</option></select></div></div>
+<label><input id="affordable" type="checkbox" checked style="width:auto;margin-right:8px">Pokaż tylko przedmioty w budżecie</label>
+<div class="actions"><button type="button" id="scan">Przelicz listę</button><button type="button" id="reset">Przywróć przykłady</button></div>
+</section>
+<section class="panel"><h2>Dodaj własną obserwację</h2><div class="row"><div><label for="itemName">Nazwa skina</label><input id="itemName" placeholder="Np. Glock-18 | Green Line"></div><div><label for="buy">Cena zakupu / buy order (PLN)</label><input id="buy" type="number" min="0.01" step="0.01" value="0.53" inputmode="decimal"></div></div><label for="sell">Cena płacona przez kupującego na Steam (PLN)</label><input id="sell" type="number" min="0.01" step="0.01" value="0.95" inputmode="decimal"><div class="actions"><button type="button" id="add">Dodaj do listy</button></div><p class="muted">Wpisujesz ceny samodzielnie. To nie jest automatyczne pobieranie ofert.</p></section>
+<p id="count" aria-live="polite"></p><div id="results" aria-live="polite"></div>
+<p class="muted notice">Szacunkowa kwota Steam jest liczona jako 85% ceny kupującego, zaokrąglone w dół do grosza. Steam stosuje opłaty minimalne i zaokrąglenia, więc przy tanich skinach rzeczywisty wynik może być inny. Dodatnia różnica oznacza tylko potencjalnie większą wartość w portfelu Steam, nie wypłacalny zysk. Buy order nie gwarantuje realizacji. Przykładowe ceny poniżej nie są ofertami na żywo.</p>
+<script>
+(function(){
+'use strict';
+const examples=[
+{name:'Glock-18 | Green Line',buy:0.53,sell:0.95},
+{name:'Przykład A — skin testowy',buy:0.40,sell:0.72},
+{name:'Przykład B — skin testowy',buy:0.50,sell:0.61},
+{name:'Przykład C — skin testowy',buy:0.65,sell:1.10},
+{name:'Przykład D — skin testowy',buy:0.28,sell:0.39}
+];
+let items=examples.map(x=>({...x}));
+const $=id=>document.getElementById(id);
+const money=x=>x.toFixed(2).replace('.',',')+' zł';
+const cents=v=>Math.round(Number(v)*100);
+function element(tag,cls,content){const e=document.createElement(tag);if(cls)e.className=cls;if(content!==undefined)e.textContent=content;return e}
+function render(){
+const budget=cents($('budget').value);const affordable=$('affordable').checked;const sort=$('sort').value;
+if(!Number.isFinite(budget)||budget<0){$('count').textContent='Wpisz poprawny budżet.';$('results').replaceChildren();return}
+const list=items.map((x,i)=>({...x,index:i,buyC:cents(x.buy),sellC:cents(x.sell)})).filter(x=>!affordable||x.buyC<=budget);
+list.sort((a,b)=>sort==='price'?a.buyC-b.buyC:sort==='name'?a.name.localeCompare(b.name,'pl'):(Math.floor(b.sellC*.85)-b.buyC)-(Math.floor(a.sellC*.85)-a.buyC));
+$('count').textContent='Wyniki: '+list.length+' z '+items.length+' pozycji';const root=$('results');root.replaceChildren();
+if(!list.length){root.append(element('div','panel empty','Brak pozycji w wybranym budżecie. Zmień filtr lub dodaj własny skin.'));return}
+for(const x of list){const net=Math.floor(x.sellC*.85),difference=net-x.buyC;const card=element('article','card');card.append(element('div','name',x.name));card.append(element('div','tag',x.buyC<=budget?'Mieści się w budżecie':'Poza budżetem'));
+const stats=element('div','stats');for(const [label,value,cls] of [['Zakup / buy order',money(x.buyC/100),''],['Steam — cena kupującego',money(x.sellC/100),''],['Steam — szacowane saldo',money(net/100),''],['Potencjalna różnica',(difference>0?'+':'')+money(difference/100),difference>0?'positive':'negative']]){const box=element('div','stat');box.append(element('span','muted',label));box.append(element('strong',cls,value));stats.append(box)}card.append(stats);root.append(card)}
+}
+$('scan').addEventListener('click',render);$('budget').addEventListener('input',render);$('sort').addEventListener('change',render);$('affordable').addEventListener('change',render);
+$('reset').addEventListener('click',()=>{items=examples.map(x=>({...x}));$('budget').value='0.53';$('affordable').checked=true;render()});
+$('add').addEventListener('click',()=>{const name=$('itemName').value.trim();const buy=Number($('buy').value.replace(',','.'));const sell=Number($('sell').value.replace(',','.'));if(!name||!Number.isFinite(buy)||!Number.isFinite(sell)||buy<=0||sell<=0){alert('Wpisz nazwę i poprawne ceny większe od zera.');return}items.push({name,buy:Math.round(buy*100)/100,sell:Math.round(sell*100)/100});$('itemName').value='';render()});render();
+})();
+</script>
 </body>
 </html>

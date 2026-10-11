@@ -4,22 +4,19 @@ import urllib.request
 import urllib.error
 import urllib.parse
 
-print("CS2 Profit Scanner - tanie oferty CSFloat")
+print("CS2 Scanner - test skinow broni")
 
 api_key = os.environ.get("CSFLOAT_API_KEY")
 
 if not api_key:
-    raise SystemExit("Brak klucza API w GitHub Secrets.")
-
-# Cena maksymalna w centach USD.
-# 20 oznacza 0.20 USD, a NIE 0.20 PLN.
-MAX_PRICE_CENTS = 20
+    raise SystemExit("Brak klucza CSFLOAT_API_KEY")
 
 params = urllib.parse.urlencode({
-    "limit": 20,
+    "limit": 10,
     "sort_by": "lowest_price",
-    "max_price": MAX_PRICE_CENTS,
-    "type": "buy_now"
+    "max_price": 20,
+    "type": "buy_now",
+    "market_hash_name": "P250"
 })
 
 url = "https://csfloat.com/api/v1/listings?" + params
@@ -28,8 +25,8 @@ request = urllib.request.Request(
     url,
     headers={
         "Authorization": api_key,
-        "User-Agent": "CS2ProfitScanner/1.1",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "User-Agent": "CS2ProfitScanner/1.2"
     }
 )
 
@@ -41,38 +38,22 @@ try:
 
     listings = data.get("data", [])
 
-    print(f"Znaleziono ofert: {len(listings)}")
-    print("Ceny w USD. Limit: 0.20 USD.")
-    print("-" * 40)
+    print(f"Pobrano ofert: {len(listings)}")
 
     for listing in listings:
         item = listing.get("item", {})
-        name = item.get(
-            "market_hash_name", "Nieznany przedmiot"
-        )
-        # Pomijamy przedmioty inne niz skiny broni
-        if not item.get("weapon"):
-            continue
-        price_cents = listing.get("price", 0)
-        price_usd = price_cents / 100
-        listing_id = listing.get("id", "")
 
-        print(f"{name} - {price_usd:.2f} USD")
-
-        if listing_id:
-            print(
-                f"https://csfloat.com/item/{listing_id}"
-            )
-
-        print("-" * 40)
-
-    if not listings:
-        print("Brak ofert w wybranym przedziale.")
+        print("--------------------")
+        print("Nazwa:", item.get("market_hash_name"))
+        print("Weapon:", item.get("weapon"))
+        print("Category:", item.get("category"))
+        print("Type:", item.get("type"))
+        print("Cena USD:", listing.get("price", 0) / 100)
 
 except urllib.error.HTTPError as error:
-    print(f"CSFloat HTTP error: {error.code}")
+    print("Blad HTTP:", error.code)
     raise
 
 except Exception as error:
-    print(f"Blad pobierania: {error}")
+    print("Blad:", error)
     raise

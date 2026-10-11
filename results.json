@@ -1,22 +1,112 @@
 [
   {
-    "name": "P250 | Sand Dune (Field-Tested)",
+    "name": "AUG | Sweeper (Field-Tested)",
     "csfloat_price_usd": 0.03,
-    "listing_id": "1028325318085181899"
+    "listing_id": "893899291075151198"
   },
   {
-    "name": "Glock-18 | Death Rattle (Field-Tested)",
-    "csfloat_price_usd": 0.07,
-    "listing_id": "1028036481366753969"
-  },
-  {
-    "name": "P250 | Sand Dune (Battle-Scarred)",
+    "name": "G3SG1 | Desert Storm (Field-Tested)",
     "csfloat_price_usd": 0.03,
-    "listing_id": "1028440525709115651"
+    "listing_id": "889502186474704131"
   },
   {
-    "name": "Glock-18 | Death Rattle (Battle-Scarred)",
-    "csfloat_price_usd": 0.1,
-    "listing_id": "1027345549898157911"
+    "name": "G3SG1 | Desert Storm (Well-Worn)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893426283508270614"
+  },
+  {
+    "name": "G3SG1 | Jungle Dashed (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "880955124720207942"
+  },
+  {
+    "name": "MAG-7 | Rust Coat (Well-Worn)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "897593281775537609"
+  },
+  {
+    "name": "MP5-SD | Dirt Drop (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "891489076912459758"
+  },
+  {
+    "name": "MP7 | Army Recon (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "890043016423803965"
+  },
+  {
+    "name": "MP7 | Army Recon (Well-Worn)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "895349464095654205"
+  },
+  {
+    "name": "MP9 | Sand Dashed (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893651151638103868"
+  },
+  {
+    "name": "MP9 | Slide (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "892209543533169051"
+  },
+  {
+    "name": "Nova | Mandrel (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "889534768281158331"
+  },
+  {
+    "name": "Nova | Predator (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893651156771931991"
+  },
+  {
+    "name": "P250 | Facility Draft (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893899289342903636"
+  },
+  {
+    "name": "P90 | Sand Spray (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "891402188864228347"
+  },
+  {
+    "name": "PP-Bizon | Facility Sketch (Battle-Scarred)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893867783471891697"
+  },
+  {
+    "name": "PP-Bizon | Facility Sketch (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "890314171315522697"
+  },
+  {
+    "name": "SCAR-20 | Contractor (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "881440831762989642"
+  },
+  {
+    "name": "SCAR-20 | Contractor (Well-Worn)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "896252904242022436"
+  },
+  {
+    "name": "SCAR-20 | Sand Mesh (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893584297066365109"
+  },
+  {
+    "name": "Tec-9 | Army Mesh (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "893651156176340820"
+  },
+  {
+    "name": "UMP-45 | Facility Dark (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "890835775472668496"
+  },
+  {
+    "name": "UMP-45 | Mudder (Field-Tested)",
+    "csfloat_price_usd": 0.03,
+    "listing_id": "891996982825059844"
   }
 ]

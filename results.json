@@ -1,287 +1,732 @@
 [
   {
-    "name": "AUG | Sweeper (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901222872385719430"
+    "name": "AUG | Commando Company (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "901952584703675802"
   },
   {
-    "name": "Dual Berettas | Contractor (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901220281346034648"
+    "name": "AUG | Condemned (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "934822514163583761"
+  },
+  {
+    "name": "AUG | Contractor (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "954722783554833661"
+  },
+  {
+    "name": "AUG | Contractor (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "943200222224453559"
+  },
+  {
+    "name": "AUG | Storm (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "851278371345270512"
+  },
+  {
+    "name": "CZ75-Auto | Pink Pearl (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552814687159060"
+  },
+  {
+    "name": "Dual Berettas | BorDeux (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "948202034274894160"
+  },
+  {
+    "name": "Dual Berettas | Colony (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "949602383246265978"
   },
   {
     "name": "Dual Berettas | Contractor (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "898575557900502100"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "943973888088474613"
   },
   {
-    "name": "Dual Berettas | Contractor (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "903957910114142968"
+    "name": "Dual Berettas | Polished Malachite (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "974791673001412909"
+  },
+  {
+    "name": "Dual Berettas | Rose Nacre (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "863146857860304645"
+  },
+  {
+    "name": "Dual Berettas | Silver Pour (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "943443215082719116"
+  },
+  {
+    "name": "FAMAS | Half Sleeve (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967399567056306951"
+  },
+  {
+    "name": "FAMAS | Half Sleeve (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967400800789858667"
+  },
+  {
+    "name": "FAMAS | Palm (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "958641524164397121"
+  },
+  {
+    "name": "Five-SeveN | Autumn Thicket (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "961013706051945740"
   },
   {
     "name": "Five-SeveN | Coolant (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905840845121522793"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552815886730012"
   },
   {
-    "name": "G3SG1 | Desert Storm (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "900834105451743945"
+    "name": "Five-SeveN | Coolant (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972999578343310851"
   },
   {
-    "name": "G3SG1 | Desert Storm (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893132921894997822"
+    "name": "Five-SeveN | Forest Night (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "893925741941621299"
   },
   {
-    "name": "G3SG1 | Desert Storm (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893426283508270614"
+    "name": "Five-SeveN | Forest Night (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "973226652534441780"
   },
   {
-    "name": "G3SG1 | Green Cell (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901444317334342656"
+    "name": "Five-SeveN | Midnight Paintover (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964027869758095510"
+  },
+  {
+    "name": "Five-SeveN | Sky Blue (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "961555869953294381"
   },
   {
     "name": "G3SG1 | Jungle Dashed (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905478561991886021"
-  },
-  {
-    "name": "G3SG1 | Jungle Dashed (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "900959408727656231"
-  },
-  {
-    "name": "G3SG1 | Jungle Dashed (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "903165469345841781"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "851278355813762757"
   },
   {
     "name": "G3SG1 | Red Jasper (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "904361390180011104"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "961761398944302564"
+  },
+  {
+    "name": "Galil AR | Acid Dart (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "913158590402004354"
+  },
+  {
+    "name": "Galil AR | Cold Fusion (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "953357636156392935"
+  },
+  {
+    "name": "Galil AR | Destroyer (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "948948152663281571"
+  },
+  {
+    "name": "Galil AR | Grey Smoke (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552818298454833"
+  },
+  {
+    "name": "Galil AR | Robin's Egg (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959558259256198401"
+  },
+  {
+    "name": "Galil AR | Sage Spray (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "968407628243927789"
+  },
+  {
+    "name": "M249 | Sage Camo (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904553708078104895"
+  },
+  {
+    "name": "M249 | Sage Camo (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "909158937163599377"
+  },
+  {
+    "name": "M4A4 | Aeolian Dark (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967949138073357012"
+  },
+  {
+    "name": "M4A4 | Mainframe (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "968884386680409227"
+  },
+  {
+    "name": "M4A4 | Steel Work (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "961392308568329692"
+  },
+  {
+    "name": "M4A4 | Steel Work (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "949260975922610967"
+  },
+  {
+    "name": "MAC-10 | Bronzer (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964783945646475034"
+  },
+  {
+    "name": "MAC-10 | Monkeyflage (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959260619704503720"
+  },
+  {
+    "name": "MAC-10 | Storm Camo (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "931912759212376450"
+  },
+  {
+    "name": "MAC-10 | Storm Camo (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "932586616789274354"
+  },
+  {
+    "name": "MAG-7 | Copper Oxide (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "971878053548523854"
+  },
+  {
+    "name": "MAG-7 | Foresight (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "943100147632573382"
+  },
+  {
+    "name": "MAG-7 | Resupply (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "970447041689947404"
+  },
+  {
+    "name": "MAG-7 | Resupply (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "966235760099460152"
+  },
+  {
+    "name": "MAG-7 | Rust Coat (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "893570609760569040"
   },
   {
     "name": "MAG-7 | Rust Coat (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "897593281775537609"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972999566729282936"
   },
   {
-    "name": "MP5-SD | Dirt Drop (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "899924609145636639"
+    "name": "MAG-7 | Wildwood (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967400964229301653"
   },
   {
     "name": "MP5-SD | Dirt Drop (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "891489076912459758"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552821578400589"
   },
   {
-    "name": "MP5-SD | Dirt Drop (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "900093872892412454"
+    "name": "MP5-SD | Liquidation (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "966162257128063743"
+  },
+  {
+    "name": "MP5-SD | Picnic (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "942551261125938100"
+  },
+  {
+    "name": "MP5-SD | Savannah Halftone (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967171652368598989"
+  },
+  {
+    "name": "MP5-SD | Savannah Halftone (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967401283575220386"
+  },
+  {
+    "name": "MP5-SD | Snow Splash (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "947799049740879637"
   },
   {
     "name": "MP7 | Army Recon (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "892363310173913984"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552819414139714"
   },
   {
-    "name": "MP7 | Army Recon (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "895349464095654205"
+    "name": "MP7 | Short Ochre (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "960278254428753793"
   },
   {
-    "name": "MP7 | Forest DDPAT (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905178899216991340"
+    "name": "MP9 | Bee-Tron (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964622534022662181"
   },
   {
-    "name": "MP9 | Sand Dashed (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "903165473586283143"
+    "name": "MP9 | Buff Blue (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "941731511810525985"
+  },
+  {
+    "name": "MP9 | Multi-Terrain (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552813575668491"
+  },
+  {
+    "name": "MP9 | Multi-Terrain (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972999409983949763"
+  },
+  {
+    "name": "MP9 | Nexus (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "969995457793230944"
+  },
+  {
+    "name": "MP9 | Nexus (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959803025474587079"
+  },
+  {
+    "name": "MP9 | Pine (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "902716356296838287"
   },
   {
     "name": "MP9 | Sand Dashed (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893651151638103868"
-  },
-  {
-    "name": "MP9 | Sand Dashed (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "899776573924836830"
-  },
-  {
-    "name": "MP9 | Slide (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905840842747546695"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "955066481006216913"
   },
   {
     "name": "MP9 | Slide (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "892209543533169051"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552810199253739"
   },
   {
     "name": "MP9 | Slide (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901542637205587297"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "968500678311936860"
   },
   {
-    "name": "Nova | Mandrel (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "889534768281158331"
+    "name": "Negev | Drop Me (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "948948151371435919"
   },
   {
-    "name": "Nova | Predator (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "902287700718126157"
+    "name": "Negev | Raw Ceramic (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552812476760834"
   },
   {
-    "name": "Nova | Predator (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893651156771931991"
+    "name": "Negev | Raw Ceramic (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972999395517795037"
   },
   {
-    "name": "Nova | Predator (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "898781481210613523"
+    "name": "Negev | Ultralight (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "973497157359372639"
+  },
+  {
+    "name": "Negev | Wall Bang (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967049889248839523"
+  },
+  {
+    "name": "Nova | Currents (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "943453155037939747"
+  },
+  {
+    "name": "Nova | Dark Sigil (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "970721538036861964"
+  },
+  {
+    "name": "Nova | Mandrel (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "906028453994826745"
+  },
+  {
+    "name": "Nova | Polar Mesh (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "887963475228364469"
+  },
+  {
+    "name": "Nova | Sand Dune (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959516720832318897"
+  },
+  {
+    "name": "Nova | Turquoise Pour (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "885665882217513249"
+  },
+  {
+    "name": "P2000 | Marsh (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "910944707503328212"
+  },
+  {
+    "name": "P2000 | Marsh (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "907984101225661694"
+  },
+  {
+    "name": "P2000 | Red Wing (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "968241205664156157"
+  },
+  {
+    "name": "P250 | Boreal Forest (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "955223566373225291"
+  },
+  {
+    "name": "P250 | Copper Oxide (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "948202032815276359"
   },
   {
     "name": "P250 | Facility Draft (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893899289342903636"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "908478559947983600"
   },
   {
-    "name": "P90 | Desert Halftone (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901101848784668043"
+    "name": "P250 | Plum Netting (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "944043239726515592"
   },
   {
-    "name": "P90 | Sand Spray (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "899897945372099674"
+    "name": "P250 | Plum Netting (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972223466159866025"
   },
   {
-    "name": "P90 | Sand Spray (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "891402188864228347"
+    "name": "P250 | Re.built (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967520334561544493"
   },
   {
-    "name": "P90 | Sand Spray (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "898989694635869372"
+    "name": "P250 | Sleet (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "960499167401213958"
   },
   {
-    "name": "PP-Bizon | Facility Sketch (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893867783471891697"
+    "name": "P90 | Blue Tac (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "971878048590856473"
+  },
+  {
+    "name": "P90 | Desert Halftone (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "961761775676688844"
+  },
+  {
+    "name": "P90 | Freight (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964695028918258237"
+  },
+  {
+    "name": "P90 | Freight (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959260624574090700"
+  },
+  {
+    "name": "P90 | Mustard Gas (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "925921280190972568"
+  },
+  {
+    "name": "PP-Bizon | Cold Cell (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "974810634317335241"
   },
   {
     "name": "PP-Bizon | Facility Sketch (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "890314171315522697"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "955514271561811253"
   },
   {
-    "name": "PP-Bizon | Urban Dashed (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "903165476576821910"
+    "name": "PP-Bizon | Runic (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964544392637580613"
   },
   {
-    "name": "R8 Revolver | Bone Mask (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "902600382759439256"
+    "name": "PP-Bizon | Sand Dashed (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "925791852408473274"
   },
   {
-    "name": "SCAR-20 | Contractor (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "904837701264607587"
+    "name": "PP-Bizon | Thermal Currents (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "946297706014442678"
+  },
+  {
+    "name": "PP-Bizon | Wood Block Camo (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "969408081773595884"
+  },
+  {
+    "name": "R8 Revolver | Cobalt Grip (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "950352128428345514"
+  },
+  {
+    "name": "R8 Revolver | Dark Chamber (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "972633103447229673"
+  },
+  {
+    "name": "R8 Revolver | Leafhopper (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "911268670632756490"
+  },
+  {
+    "name": "R8 Revolver | Leafhopper (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "959574839465738685"
+  },
+  {
+    "name": "R8 Revolver | Leafhopper (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "912816803347041450"
+  },
+  {
+    "name": "R8 Revolver | Mauve Aside (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "969529933351225961"
   },
   {
     "name": "SCAR-20 | Contractor (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893651153932388161"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "925791851041130147"
   },
   {
-    "name": "SCAR-20 | Contractor (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "896252904242022436"
-  },
-  {
-    "name": "SCAR-20 | Sand Mesh (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901222868044614769"
+    "name": "SCAR-20 | Fragments (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967474968147396402"
   },
   {
     "name": "SCAR-20 | Sand Mesh (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893584297066365109"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "724231755128768283"
   },
   {
-    "name": "SCAR-20 | Sand Mesh (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901831312900492530"
+    "name": "SCAR-20 | Zinc (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "960579905358266814"
   },
   {
-    "name": "SCAR-20 | Short Ochre (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905481955989130723"
+    "name": "SG 553 | Basket Halftone (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "938833986371846402"
   },
   {
-    "name": "SG 553 | Army Sheen (Minimal Wear)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "903991061830045518"
+    "name": "SG 553 | Cyberforce (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964727434941432797"
   },
   {
     "name": "SG 553 | Night Camo (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "905061338290719460"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904553705867706669"
+  },
+  {
+    "name": "SG 553 | Night Camo (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "939586408300021852"
+  },
+  {
+    "name": "SG 553 | Waves Perforated (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "851278357864777420"
   },
   {
     "name": "SG 553 | Waves Perforated (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "898488550318801975"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "887682326824354370"
   },
   {
     "name": "SSG 08 | Blue Spruce (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "900692304149479884"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "960413182403415438"
   },
   {
-    "name": "Tec-9 | Army Mesh (Battle-Scarred)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "902350996569719741"
+    "name": "SSG 08 | Blue Spruce (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "957663658052290417"
+  },
+  {
+    "name": "SSG 08 | Dezastre (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "963798165851605865"
+  },
+  {
+    "name": "SSG 08 | Dezastre (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "957671793836035587"
+  },
+  {
+    "name": "SSG 08 | Grey Smoke (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "947799050869147422"
+  },
+  {
+    "name": "SSG 08 | Memorial (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "974280265889353419"
+  },
+  {
+    "name": "SSG 08 | Tiger Tear (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "938124423070876540"
+  },
+  {
+    "name": "SSG 08 | Tiger Tear (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "970079371115236935"
+  },
+  {
+    "name": "Sawed-Off | Runoff (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552816968860455"
   },
   {
     "name": "Tec-9 | Army Mesh (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "893651156176340820"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "904552811369464565"
+  },
+  {
+    "name": "Tec-9 | Banana Leaf (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "966450280361234050"
+  },
+  {
+    "name": "Tec-9 | Citric Acid (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "962035640545971638"
   },
   {
     "name": "Tec-9 | Groundwater (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "902147076366929157"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "938054065705847367"
+  },
+  {
+    "name": "Tec-9 | Groundwater (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "902716358997970108"
+  },
+  {
+    "name": "Tec-9 | Slag (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "947644063782405860"
+  },
+  {
+    "name": "Tec-9 | Tiger Stencil (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "967401261756450506"
+  },
+  {
+    "name": "Tec-9 | Tiger Stencil (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "974807975782911008"
+  },
+  {
+    "name": "Tec-9 | VariCamo (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "540785787021689903"
+  },
+  {
+    "name": "UMP-45 | Facility Dark (Factory New)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "713831058902224249"
   },
   {
     "name": "UMP-45 | Facility Dark (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "890835775472668496"
+    "csfloat_price_usd": 0.08,
+    "listing_id": "881526913410142036"
   },
   {
-    "name": "UMP-45 | Facility Dark (Minimal Wear)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "904361386367388713"
+    "name": "UMP-45 | Green Swirl (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "925791857001236182"
   },
   {
-    "name": "UMP-45 | Mudder (Field-Tested)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "891996982825059844"
+    "name": "UMP-45 | Green Swirl (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "906057843780751345"
   },
   {
-    "name": "UMP-45 | Mudder (Well-Worn)",
-    "csfloat_price_usd": 0.03,
-    "listing_id": "901508166850838677"
+    "name": "UMP-45 | Motorized (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "953729323293082904"
+  },
+  {
+    "name": "UMP-45 | Motorized (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "962022535480870996"
+  },
+  {
+    "name": "UMP-45 | Roadblock (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "960388818412896514"
+  },
+  {
+    "name": "USP-S | Forest Leaves (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "886990312659093137"
+  },
+  {
+    "name": "XM1014 | Blue Spruce (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "906225135785216003"
+  },
+  {
+    "name": "XM1014 | Canvas Cloud (Factory New)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "962035450292338979"
+  },
+  {
+    "name": "XM1014 | Canvas Cloud (Minimal Wear)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "940595997170599679"
+  },
+  {
+    "name": "XM1014 | Gum Wall Camo (Battle-Scarred)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "913524916303826367"
+  },
+  {
+    "name": "XM1014 | Irezumi (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964338665495069221"
+  },
+  {
+    "name": "XM1014 | Mockingbird (Well-Worn)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "970516408817551583"
+  },
+  {
+    "name": "Zeus x27 | Swamp DDPAT (Field-Tested)",
+    "csfloat_price_usd": 0.08,
+    "listing_id": "964220615487783626"
   }
 ]

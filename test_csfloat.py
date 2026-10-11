@@ -11,7 +11,8 @@ if not api_key:
 params = urllib.parse.urlencode({
     'limit': 40,
     'sort_by': 'lowest_price',
-    'max_price': 30,
+    'min_price': 8,
+    'max_price': 14,
     'type': 'buy_now',
     'category': 1,
 })

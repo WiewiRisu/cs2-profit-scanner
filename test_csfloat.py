@@ -13,7 +13,9 @@ params = urllib.parse.urlencode({
     'sort_by': 'lowest_price',
     'max_price': 30,
     'type': 'buy_now',
+    'category': 1,
 })
+
 url = 'https://csfloat.com/api/v1/listings?' + params
 request = urllib.request.Request(url, headers={
     'Authorization': api_key,
